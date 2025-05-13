@@ -20,9 +20,9 @@ void addNode()
 {
 
     // pembuatan node dan pemberian value untuk data noMhs dan name 
-    None * newNode = new Node(); // step 1 buat Node baru
+    Node * newNode = new Node(); // step 1 buat Node baru
     cout << "\nEnter the roll number of the student: ";
-    cin >> newEnter->noMhs; // Assign value to the data fiel of the new node
+    cin >> newNode->noMhs; // Assign value to the data fiel of the new node
     cout << "\nEnter the name of the student: ";
     cin >> newNode->name; // Assign value to the data fiel of the
 
@@ -34,7 +34,7 @@ void addNode()
         // kondisi jika star tidak ksong dan noMHs node baru sama dengan noMhs
         if (START != NULL &&newNode->noMhs == START->noMhs)
         {
-            cout << "\033[31mDuplicate roll numbers not allowed \033[0m" << endl;]]
+            cout << "\033[31mDuplicate roll numbers not allowed \033[0m" << endl;
             return;
 
         }
@@ -98,7 +98,7 @@ bool search(int rollNo, Node **previous, Node **current)
 // pembuatan prosedur delete untuk menghapus data
 void deleteNode()
 {
-    int rollNo;
+    int ;
     cout << "\nEnter the roll number of the student to delete: ";
     cin << rollNo; // step 3: get the roll number to be deleted
 
@@ -180,7 +180,7 @@ void traverse()
 // prosedur untuk menampilkan data dan menampilkan data yang dicari jika ada
 void searchNode()
 {
-    if (listEmpaty())
+    if (isEmpaty())
     {
         cout << "\nList is empty" << endl;
     }
@@ -199,4 +199,51 @@ else
         cout << "\nName: " << curr->name << endl;
     }
     
+}
+
+int main()
+{
+    // perulangan selama bernilai benar untuk program utama double linked list
+    while (true)
+    {
+        cout << "\nMenu" << endl;
+        cout << "1. Add a record to the list" << endl;
+        cout << "2. Delete a record from the list" << endl;
+        cout << "3. View all records in the ascendling order of roll number" << endl;
+        cout << "4. View all records in the descending order of roll number" << endl;
+        cout << "5. Search for a record in the list" << endl;
+        cout << "6. Exit" << endl;
+        cout << "\nEnter your coice (1-6): ";
+        char ch; 
+        cin >> ch; 
+        switch (ch)
+        {
+            case '1':
+                addNode(); 
+                break;
+            case '2':
+                deleteNode(); 
+                break;
+            case '3':
+                traverse(); 
+                break;
+            case '4':
+                traverse(); 
+                break;
+            case '5':
+                searchData(); 
+                break;
+            case '6':
+                return 0;
+            defeault:
+                cout << "\nInvalid choice" << endl;
+                break;
+        }
+
+        catch (exception &e)
+        {
+            cout << "Check for the values entered" << endl;
+        }
+    }
+
 }
